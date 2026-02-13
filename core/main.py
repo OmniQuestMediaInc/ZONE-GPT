@@ -87,6 +87,9 @@ async def upload_dataset(file: UploadFile = File(...)):
     dataset_path.mkdir(parents=True, exist_ok=True)
 
     # Store file as <version>.csv (using "v1" as placeholder)
+    # Note: Version is currently hardcoded as "v1" per requirements.
+    # Subsequent uploads of the same dataset will overwrite the existing file.
+    # Future enhancement: implement versioning logic to prevent overwrites.
     version = "v1"
     file_path = dataset_path / f"{version}.csv"
 
