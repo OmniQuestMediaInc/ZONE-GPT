@@ -44,12 +44,16 @@ jobs:
     
     - name: Security check with bandit
       run: |
-        bandit -r core -ll
+        if [ -d "core" ]; then
+          bandit -r core -ll
+        else
+          echo "No core directory found, skipping security scan"
+        fi
       continue-on-error: true
     
     - name: Check for known security vulnerabilities in dependencies
       run: |
-        safety check --json || true
+        safety check --json
       continue-on-error: true
     
     - name: Run tests
