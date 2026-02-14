@@ -19,17 +19,31 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 # Virtual environments
 venv/
 ENV/
 env/
+.venv/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Testing and Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
 
 # Logs
 *.log
@@ -38,3 +52,8 @@ brain_audit.log
 # OS
 .DS_Store
 Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*~

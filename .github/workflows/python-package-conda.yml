@@ -1,4 +1,8 @@
-name: Python Package using Conda
+# DEPRECATED: This workflow is deprecated in favor of ci.yml
+# This workflow will be removed in a future update.
+# Please use .github/workflows/ci.yml instead.
+
+name: Python Package using Conda (Deprecated)
 
 on: [push]
 
