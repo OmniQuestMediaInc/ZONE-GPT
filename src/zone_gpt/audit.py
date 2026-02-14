@@ -1,10 +1,24 @@
 """Audit logging module for ZONE-GPT."""
 
 import logging
+import os
 from datetime import datetime
+from pathlib import Path
 
+
+def get_log_file_path() -> str:
+    """
+    Get the audit log file path from environment or use default.
+
+    Returns:
+        str: Path to the audit log file
+    """
+    return os.getenv("ZONE_GPT_AUDIT_LOG", "brain_audit.log")
+
+
+# Configure logging with path from environment
 logging.basicConfig(
-    filename="brain_audit.log",
+    filename=get_log_file_path(),
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
 )

@@ -1,5 +1,7 @@
 """ZONE-GPT Core FastAPI Application Factory."""
 
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -18,9 +20,11 @@ def create_app() -> FastAPI:
     )
 
     # Configure CORS for frontend connectivity
+    # SECURITY: Configure ALLOWED_ORIGINS environment variable for production
+    allowed_origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"],  # In production, replace with your specific domain
+        allow_origins=allowed_origins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
